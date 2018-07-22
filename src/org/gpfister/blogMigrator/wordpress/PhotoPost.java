@@ -3,6 +3,13 @@ package org.gpfister.blogMigrator.wordpress;
 import javax.xml.bind.annotation.XmlElement;  
 import javax.xml.bind.annotation.XmlRootElement; 
 
+/**
+ * BlogMigrator - https://github.com/gpfister/blogmigrator
+ * 
+ * @author Greg PFISTER
+ * @license MIT License v2
+ *
+ */
 @XmlRootElement
 public class PhotoPost extends Post {
 
