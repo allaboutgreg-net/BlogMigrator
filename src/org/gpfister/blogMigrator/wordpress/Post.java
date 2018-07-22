@@ -5,10 +5,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement; 
 
 /**
- * BlogMigrator - https://github.com/gpfister/blogmigrator
+ * BlogMigrator - https://github.com/gpfister/BlogMigrator
  * 
  * @author Greg PFISTER
- * @license MIT License v2
+ * @license MIT License
  *
  */
 @XmlRootElement
