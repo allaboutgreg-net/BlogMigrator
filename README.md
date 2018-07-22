@@ -45,9 +45,14 @@ This file will have all the parameter to convert the JSON files from Tumblr to a
 			"/path/to/tumblr/input/file4.json"
 		],
 		"output_file": "/path/to/output/file.xml",
+		"media_download_rules": {
+			"use_slug_as_media_filename": false,
+			"media_download_folder": "/path/to/media/download/folder/"
+		},
 		"post_mapping_rules": {
 			"import_unmapped": false,
 			"map_if_empty_only": false,
+			"map_media_download_url": "http://new.url.for/media/files/",
 			"id-1": {
 				"categories": "new, categories",
 				"title": "New title 1",
@@ -61,17 +66,35 @@ This file will have all the parameter to convert the JSON files from Tumblr to a
 		}
 	}
 
-`input_files`: an array of file path to the Tumblr JSON files. They will be processed in this sequence.
+Here are the details about the file.
 
-`output_file`: the path to the output file.
+`input_files` (mandatory): an array of file path to the Tumblr JSON files. They will be processed in this sequence.
 
-`post_mapping_rules`: a set of rules to apply during the conversion:
-  - `import_unmapped`: if set to `true`, only import a post if there's a specific mapping rule for the post `id`. Else, don't filter the post.
-  - `map_if_empty_only`: if set to `true`, only replace a value in a field if this field is originaly empty. Else, the value will be overwritten.
-  - `id`: allow to set specific rules for a given post `id`
-    - `categories`: the categories to assign to the post (Tumblr doesn't use categories).
-    - `title`: the title to assign to the post (Tumblr doesn't use title).
-    - `slug`: the slug for the URL (Tumblr uses slug as well).
+`output_file` (mandatory): the path to the output file.
+
+'media_download_rules' (optional): a set of rules for downloading medias. If missing, media won't be downloaded.
+
+`media_download_rules.use_slug_as_media_filename` (optional): if set to `true`, downloaded media file will be renamed using the post `slug`. Else filename is not changed.
+
+`media_download_rules.media_download_folder` (mandatory): the path to the destination download folder.
+
+`post_mapping_rules` (optional): a set of rules to apply during the conversion:
+
+
+`post_mapping_rules.import_unmapped` (optional): if set to `true`, only import a post if there's a specific mapping rule for the post `id`. Else, don't filter the post.
+
+
+`post_mapping_rules.map_if_empty_only` (optional): if set to `true`, only replace a value in a field if this field is originaly empty. Else, the value will be overwritten.
+
+`post_mapping_rules.id.map_media_download_url` (optional): the mapping of the URL (without the file name) of the media. It can be used if file must be put on a different server to easier access, or if renaming using slug (set the `media_download_rules` part). If not set, the original source URL will be used.
+
+`post_mapping_rules.id` (optional): allow to set specific rules for a given post `id`
+
+`post_mapping_rules.id.categories` (optional): the categories to assign to the post (Tumblr doesn't use categories).
+
+`post_mapping_rules.id.title` (optional): the title to assign to the post (Tumblr doesn't use title).
+
+`post_mapping_rules.id.slug` (optional): the slug for the URL (Tumblr uses slug as well).
      
 ### XML Output and import process
 
