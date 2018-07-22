@@ -1,16 +1,16 @@
-#BlogMigrator
+# BlogMigrator
 
 	© 2018, Greg PFISTER. MIT License.
 
 Simple migration from Tumblr to Wordpress.
 
-##Description.
+## Description.
 
 BlogMigrator is a simple Java program to convert Tumblr JSON files to an XML to import in Wordpress. The JSON files are downloaded calling the [Tumblr API](https://www.tumblr.com/docs/en/api/v2) (query Posts). It then generates a custom XML file which can then be loaded using the plugin [WP All Import](http://www.wpallimport.com).
 
 It may not be usable as is for your blog migration, but you can fork to make your own version.
 
-###Tumblr API
+### Tumblr API
 
 In order to get the JSON file, the query https://api.tumblr.com/v2/blog/<blog URI>/posts must be run (using a program like the free version of [Postman](https://www.getpostman.com)).
 
@@ -27,13 +27,13 @@ For example, if there are 75 posts on your Tumblr blog:
   
 You can of course explore the Tumblr API to make the appropriate queries.
 
-###Build and run
+### Build and run
 
 Eclipse Photon was used to build and run. There are Maven dependencies.
 
 The program requires only one parameter: the path to the JSON configuration file. For details about this file, please refer to the next section.
 
-###JSON Configuration
+### JSON Configuration
 
 This file will have all the parameter to convert the JSON files from Tumblr to an XML file.
 
@@ -73,11 +73,11 @@ This file will have all the parameter to convert the JSON files from Tumblr to a
     - `title`: the title to assign to the post (Tumblr doesn't use title).
     - `slug`: the slug for the URL (Tumblr uses slug as well).
      
-###XML Output and import process
+### XML Output and import process
 
 There is no schema (XSD or DTD) for the output XML. It is generated using JAXB. The plugin `WP All Import` doesn't require a fix format, it will allow you to map a custom XML to each object you are trying to load.
 
-##Dependencies
+## Dependencies
 
 This program requires `JSON-Simple` and `JAXB`.
 
@@ -111,6 +111,6 @@ To build the code, only the following Maven dependencies must be resolved:
 		</dependency>
 	</dependencies>
 	
-##License
+## License
 
-This program is provided under the MIT License v2. You are free to fork it to make it your own, but you need to respect the MIT License v2.
+This program is provided under the MIT License. You are free to fork it to make it your own, but you need to respect the MIT License.
