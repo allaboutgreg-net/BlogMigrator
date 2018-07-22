@@ -1,8 +1,8 @@
 /**
- * BlogMigrator - https://github.com/gpfister/blogmigrator
+ * BlogMigrator - https://github.com/gpfister/BlogMigrator
  * 
  * @author Greg PFISTER
- * @license MIT License v2
+ * @license MIT License
  *
  */
 package org.gpfister.blogMigrator.wordpress;

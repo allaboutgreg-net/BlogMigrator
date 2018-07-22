@@ -13,10 +13,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
- * BlogMigrator - https://github.com/gpfister/blogmigrator
+ * BlogMigrator - https://github.com/gpfister/BlogMigrator
  * 
  * @author Greg PFISTER
- * @license MIT License v2
+ * @license MIT License
  *
  */
 public class BlogMigrator {
