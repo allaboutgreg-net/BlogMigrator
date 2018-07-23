@@ -60,10 +60,12 @@ public class BlogMigrator {
         	
         	// Get the post mapping rules
         	JSONObject jsonPostMappingRules = (JSONObject) jsonConfig.get("post_mapping_rules");
+        	JSONObject jsonTagMapping= null;
     		boolean mustImportUnmapped = false;
     		boolean mustMapIfEmptyOnly = false;
     		String mappingMediaDownloadURL = null;
         	if (jsonPostMappingRules != null)	{
+        		jsonTagMapping = (JSONObject) jsonPostMappingRules.get("tag_mapping");
         		mustImportUnmapped = (boolean) jsonPostMappingRules.get("import_unmapped");
         		mustMapIfEmptyOnly = (boolean) jsonPostMappingRules.get("map_if_empty_only");
         		mappingMediaDownloadURL = (String) jsonPostMappingRules.get("map_media_download_url");
@@ -152,7 +154,7 @@ public class BlogMigrator {
 				                    	PhotoPost photoPost = new PhotoPost();
 				                    	photoPost.setId(id.longValue());
 				                    	photoPost.setTitle(newTitle);
-				                    	photoPost.setSlug((newSlug != null ? (slug == null || !mustMapIfEmptyOnly ? newSlug : slug) : slug));
+				                    	photoPost.setSlug((newSlug != null ? (slug == null || ! mustMapIfEmptyOnly ? newSlug : slug) : slug));
 				                    	photoPost.setExcerpt(summary);
 				                    	photoPost.setContent(caption);
 				                    	photoPost.setTimeStamp(date);
@@ -160,8 +162,13 @@ public class BlogMigrator {
 				                    	
 				                    	// Set tags
 				                    	while (tagsIterator.hasNext())	{
-				                    		if (photoPost.getTags() != null)	photoPost.setTags(photoPost.getTags() + ", " + tagsIterator.next());
-				                    		else								photoPost.setTags(tagsIterator.next());
+				                    		String tag = tagsIterator.next();
+				                    		if (jsonTagMapping != null)	{
+				                    			String newTag = (String) jsonTagMapping.get(tag);
+				                    			if (newTag != null)	tag = newTag;
+				                    		}
+				                    		if (photoPost.getTags() != null)	photoPost.setTags(photoPost.getTags() + ", " + tag);
+				                    		else								photoPost.setTags(tag);
 				                    	}
 				                    	
 			                            if (postMapping == null && ! mustImportUnmapped)	{
