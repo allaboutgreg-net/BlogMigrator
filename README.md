@@ -1,6 +1,4 @@
-# BlogMigrator
-
-	© 2018, Greg PFISTER. MIT License.
+# [BlogMigrator](https://allaboutgreg.net/BlogMigrator) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
 
 Simple migration from Tumblr to Wordpress.
 
@@ -136,4 +134,4 @@ To build the code, only the following Maven dependencies must be resolved:
 	
 ## License
 
-This program is provided under the MIT License. You are free to fork it to make it your own, but you need to respect the MIT License.
+BlogMigrator is [MIT licensed](./LICENSE).
