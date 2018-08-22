@@ -4,6 +4,12 @@
 
 Simple migration from Tumblr to Wordpress.
 
+## Version 1.2 - August 2018
+
+  - (Add) New feature to map tags
+  
+In order to allow for harmonisation of the tags, it is possible to convert tags to the expected list.
+
 ## Version 1.1 - July 2018
 
   - (Add) New feature to download media and map the URL for the upload.
