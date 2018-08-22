@@ -49,7 +49,12 @@ This file will have all the parameter to convert the JSON files from Tumblr to a
 		},
 		"post_mapping_rules": {
 			"import_unmapped": false,
-			"map_if_empty_only": false,
+			"map_if_empty_only": false,	
+			"tag_mapping": {
+				"tag_1": "to_tag_1",
+				"tag_2": "to_tag_2",
+				"tag_3": "to_tag_2"
+			},
 			"map_media_download_url": "http://new.url.for/media/files/",
 			"id-1": {
 				"categories": "new, categories",
@@ -84,15 +89,19 @@ Here are the details about the file.
 
 `post_mapping_rules.map_if_empty_only` (optional): if set to `true`, only replace a value in a field if this field is originaly empty. Else, the value will be overwritten.
 
-`post_mapping_rules.id.map_media_download_url` (optional): the mapping of the URL (without the file name) of the media. It can be used if file must be put on a different server to easier access, or if renaming using slug (set the `media_download_rules` part). If not set, the original source URL will be used.
+`post_mapping_rules.tag_mapping` (optional): the mapping rules for the tags.
 
-`post_mapping_rules.id` (optional): allow to set specific rules for a given post `id`
+`post_mapping_rules.tag_mapping.<tag>` (mandatory): the `tag` to be replaced by a new tag.
 
-`post_mapping_rules.id.categories` (optional): the categories to assign to the post (Tumblr doesn't use categories).
+`post_mapping_rules.map_media_download_url` (optional): the mapping of the URL (without the file name) of the media. It can be used if file must be put on a different server to easier access, or if renaming using slug (set the `media_download_rules` part). If not set, the original source URL will be used.
 
-`post_mapping_rules.id.title` (optional): the title to assign to the post (Tumblr doesn't use title).
+`post_mapping_rules.<id>` (optional): allow to set specific rules for a given post `id`
 
-`post_mapping_rules.id.slug` (optional): the slug for the URL (Tumblr uses slug as well).
+`post_mapping_rules.<id>.categories` (optional): the categories to assign to the post (Tumblr doesn't use categories).
+
+`post_mapping_rules.<id>.title` (optional): the title to assign to the post (Tumblr doesn't use title).
+
+`post_mapping_rules.<id>.slug` (optional): the slug for the URL (Tumblr uses slug as well).
      
 ### XML Output and import process
 
